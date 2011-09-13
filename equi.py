@@ -20,3 +20,5 @@ def equi(A):
 
 if __name__=="__main__":
     print equi([-7, 1, 5, 2, -4, 3, 0])
+
+""" Result: 100! :D """
