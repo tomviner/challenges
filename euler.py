@@ -94,6 +94,27 @@ def problem_4():
 
     print check_3digits()
 
+def problem_6():
+    """
+        The sum of the squares of the first ten natural numbers is,
+            12 + 22 + ... + 102 = 385
+
+        The square of the sum of the first ten natural numbers is,
+            (1 + 2 + ... + 10)2 = 552 = 3025
+
+        Hence the difference between the sum of the squares of the first ten
+        natural numbers and the square of the sum is 3025  385 = 2640. Find the
+        difference between the sum of the squares of the first one hundred
+        natural numbers and the square of the sum.
+    """
+
+    bases = range(1, 101)
+    sum_squares = sum([x**2 for x in bases])
+    square_sum = sum(bases)**2
+
+    print abs(sum_squares - square_sum)
+
+
 def problem_9():
     """
         A Pythagorean triplet is a set of three natural numbers, a  b  c, for which,
@@ -112,7 +133,7 @@ def problem_9():
             if a < b < c:
                 valid = a**2+b**2 == c**2
                 if valid:
-                    print "FOUND IT %d %d %d" % (a, b, c)
+                    print "%d (%d, %d, %d)" % (a*b*c, a, b, c)
                     break
 
 if __name__=='__main__':
