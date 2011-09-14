@@ -2,6 +2,8 @@
 import sys
 import math
 
+from euler_helpers import *
+
 def problem_1():
     """
         If we list all the natural numbers below 10 that are multiples of 3 or 5, 
@@ -44,15 +46,6 @@ def problem_3():
     n = 600851475143
     upper_limit = int(math.sqrt(n))
     sieve = range(1, upper_limit)
-
-    def is_prime(x):
-        if x % 2 == 0:
-            return False
-        for i in range(3, x, 2):
-            if x % i == 0:
-                return False
-        return True
-
     factors = list()
 
     for x in sieve: 
@@ -94,6 +87,23 @@ def problem_4():
 
     print check_3digits()
 
+def problem_5():
+    """
+        2520 is the smallest number that can be divided by each of the numbers
+        from 1 to 10 without any remainder. What is the smallest positive number
+        that is evenly divisible by all of the numbers from 1 to 20?
+    """
+    num = 2520 # From above we know 1-10 fits in this
+    nums = range(11, 21) # we need these digits to fit in the new number
+
+    def divides(x):
+        return all([x%y==0 for y in nums])
+
+    while (divides(num)==False):
+        num += 2520 # 1-10 evenly divide this. the new number should too, so can step this much
+
+    print num
+
 def problem_6():
     """
         The sum of the squares of the first ten natural numbers is,
@@ -113,6 +123,22 @@ def problem_6():
     square_sum = sum(bases)**2
 
     print abs(sum_squares - square_sum)
+
+def problem_7():
+    """
+        By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we
+        can see that the 6th prime is 13. What is the 10,001st prime number?
+    """
+
+    primes = list()
+    cnt, target = 3, 10000 # we skip 2 so need to go down 1 on target
+    while(len(primes)<target):
+        if is_prime(cnt):
+            primes.append(cnt)
+        cnt += 2
+
+    print primes[-1]
+
 
 def problem_8():
     """
