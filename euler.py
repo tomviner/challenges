@@ -60,7 +60,7 @@ def problem_3():
             factors.append(x)
 
     print [f for f in factors if is_prime(f)][-1]
-    
+
 def problem_4():
     """
         A palindromic number reads the same both ways. The largest palindrome 
@@ -68,7 +68,7 @@ def problem_4():
 
         Find the largest palindrome made from the product of two 3-digit numbers.
     """
-    
+
     def is_palindromic(x):
         x = str(x)
         mid = len(x)/2
@@ -80,9 +80,9 @@ def problem_4():
 
         if left == right[::-1]:
             return True
-    
+
         return False
-   
+
     def check_3digits():
         palindromes = list()
         for x in range(1000, 100, -1):
@@ -94,7 +94,26 @@ def problem_4():
 
     print check_3digits()
 
-    
+def problem_9():
+    """
+        A Pythagorean triplet is a set of three natural numbers, a  b  c, for which,
+            a2 + b2 = c2
+            For example, 32 + 42 = 9 + 16 = 25 = 52.
+        There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+        Find the product abc
+    """
+
+    # Since a < b < c then max of a or b would be under 500 at most
+    a_s, b_s = range(1, 500), range(1, 500)
+
+    for a in a_s:
+        for b in b_s:
+            c = 1000 - a - b
+            if a < b < c:
+                valid = a**2+b**2 == c**2
+                if valid:
+                    print "FOUND IT %d %d %d" % (a, b, c)
+                    break
 
 if __name__=='__main__':
     try:
