@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 import sys
+import math
 
 def problem_1():
     """
@@ -33,6 +34,67 @@ def problem_2():
         x0, x1 = x1, x0 + x1
 
     print even_sum
+
+def problem_3():
+    """
+        The prime factors of 13195 are 5, 7, 13 and 29.
+        What is the largest prime factor of the number 600851475143 ?
+    """
+
+    n = 600851475143
+    upper_limit = int(math.sqrt(n))
+    sieve = range(1, upper_limit)
+
+    def is_prime(x):
+        if x % 2 == 0:
+            return False
+        for i in range(3, x, 2):
+            if x % i == 0:
+                return False
+        return True
+
+    factors = list()
+
+    for x in sieve: 
+        if n%x==0:
+            factors.append(x)
+
+    print [f for f in factors if is_prime(f)][-1]
+    
+def problem_4():
+    """
+        A palindromic number reads the same both ways. The largest palindrome 
+        made from the product of two 2-digit numbers is 9009 = 91  99.
+
+        Find the largest palindrome made from the product of two 3-digit numbers.
+    """
+    
+    def is_palindromic(x):
+        x = str(x)
+        mid = len(x)/2
+        left = x[0:mid]
+        if (len(x)%2==0):
+            right = x[mid:]
+        else:
+            right = x[mid+1:]
+
+        if left == right[::-1]:
+            return True
+    
+        return False
+   
+    def check_3digits():
+        palindromes = list()
+        for x in range(1000, 100, -1):
+            for y in range(1000, 100, -1):
+                valid = is_palindromic(x*y)
+                if valid:
+                    palindromes.append(x*y)
+        return max(palindromes)
+
+    print check_3digits()
+
+    
 
 if __name__=='__main__':
     try:
