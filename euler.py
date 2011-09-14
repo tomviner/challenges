@@ -194,7 +194,14 @@ def problem_9():
                 valid = a**2+b**2 == c**2
                 if valid:
                     print "%d (%d, %d, %d)" % (a*b*c, a, b, c)
-                    break
+                    sys.exit()
+
+def problem_10():
+    """
+        The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+        Find the sum of all the primes below two million.
+    """
+    max_size = 2000000
 
 if __name__=='__main__':
     try:
