@@ -28,6 +28,39 @@ if __name__=='__main__':
     space_crews([6, 4, 7], [1, 3, 4])
     
 """
+    Result was 47/100 :# but got a silver cert... wasn't that much out in some
+    of the times either :#
+
+    test    time    result
+example 0.032 s.    OK
+simple1 0.032 s.    OK
+simple2 0.028 s.    OK
+simple3 0.028 s.    OK
+simple_random1  0.028 s.    OK
+simple_random2  0.032 s.    OK
+simple_random3  0.036 s.    OK
+extreme_n1  3.100 s.    TIMEOUT ERROR 
+running time: >3.10 sec., time limit: 2.98 sec.
+medium1 1.008 s.    TIMEOUT ERROR 
+running time: >1.01 sec., time limit: 0.40 sec.
+medium2 1.004 s.    TIMEOUT ERROR 
+running time: >1.00 sec., time limit: 0.30 sec.
+big1    9.233 s.    TIMEOUT ERROR 
+running time: >9.23 sec., time limit: 8.64 sec.
+big2    11.289 s.   TIMEOUT ERROR 
+running time: >11.29 sec., time limit: 10.21 sec.
+big3    9.189 s.    TIMEOUT ERROR 
+running time: >9.19 sec., time limit: 8.80 sec.
+big4    4.044 s.    TIMEOUT ERROR 
+running time: >4.04 sec., time limit: 3.10 sec.
+big5    12.345 s.   TIMEOUT ERROR 
+running time: >12.34 sec., time limit: 11.63 sec.
+     
+
+"""
+    
+    
+"""
 N countries (numbered from 0 to N−1) participate in a space mission. Each country has trained a certain number of astronauts and each country has to delegate a certain number of astronauts to the mission's crew. How many different ways are there to select the crew?
 
 For example, suppose there are three countries A-land, B-land and C-land and
