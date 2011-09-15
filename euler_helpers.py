@@ -2,6 +2,8 @@
 import math
 from collections import defaultdict
 
+from collections import defaultdict
+
 def is_prime(x):
     """ 
         Niavely checks if a given 'x' is prime 
@@ -13,30 +15,27 @@ def is_prime(x):
             return False
     return True
 
-
-def sieve(x):
-    """ 
-        Generates a list of primes up to 'x' via sieve technique. Could
-        be better but works ok.
-        
-            In [113]: time sieve(10000);
-            CPU times: user 1.42 s, sys: 0.00 s, total: 1.43 s
+def sieve(n):
     """
+        Creates a list of primes up to and including n via sieve technique
+    """
+    n = n+1
+    sieve = range(n)
+    primes = defaultdict(bool)
 
-    sieve = range(3, x, 2)
-    primes = dict()
+    # Default our list to true - assume all are prime
+    for x in sieve: primes[x] = True
 
     p = 2
-    while p < x:
-        for cnt, n in enumerate(sieve[::p]):
-            if cnt == 0:
-                primes[p] = True
-            print p, n, primes
+    while p <= n and p**2 <= n:
+        for c, n in enumerate(sieve[p::p]):
+            if c == 0 and primes[n] == True:
+                primes[n] = True
+            else:
+                primes[n] = False
         p += 1
-   
 
-    return primes
-    
+    return [p for p in primes if primes[p]==True and p>1]
+
 if __name__=='__main__':
     pass
-
