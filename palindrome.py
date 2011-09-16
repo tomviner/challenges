@@ -14,10 +14,9 @@ def isAnagramOfPalindrome(S):
         if not all(evens):
             return 0
     else:
-        # Our string is odd lenth so we should have one "spare" odd character
-        # since false respresents an odd count it should have remainder 1 when
-        # mod2'd
-        if evens.count(False) % 2 != 1:
+        # Not sure what I was thinking - odd count should only be *ONE* rather than
+        # odd :S 
+        if evens.count(False) != 1:
             return 0
     # We've got what we need to build a palindrome
     return 1
